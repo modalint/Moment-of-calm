@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>רגע של רוגע</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div id="welcomeScreen" class="screen active">
+            <h1>ברוך/ה הבא/ה ל'רגע של רוגע'</h1>
+            <p>כאן תמצא/י כלים מהירים ואישיים להרגעה כשאת/ה מרגיש/ה לחוץ/ה.</p>
+            <p>כדי שאתאים לך את החוויה הטובה ביותר, אשאל אותך כמה שאלות קצרות.</p>
+            <button id="startButton">בוא/י נתחיל!</button>
+        </div>
+
+        <div id="quizScreen" class="screen">
+            <h2>בוא/י נכיר</h2>
+            <div class="question-block">
+                <label for="userName">1. מה השם שלך? (כך אוכל להתייחס אלייך אישית)</label>
+                <input type="text" id="userName" placeholder="שם">
+            </div>
+            <div class="question-block">
+                <label>2. באיזה מקום אתה/את הכי אוהב/ת לדמיין את עצמך כשאתה/את רוצה להירגע?</label>
+                <div class="options">
+                    <label><input type="radio" name="place" value="חוף ים שקט" checked> חוף ים שקט</label>
+                    <label><input type="radio" name="place" value="יער ירוק ופורח"> יער ירוק ופורח</label>
+                    <label><input type="radio" name="place" value="פסגת הר עם נוף עוצר נשימה"> פסגת הר עם נוף עוצר נשימה</label>
+                    <label><input type="radio" name="place" value="מקום בטוח ומוכר בבית"> מקום בטוח ומוכר בבית</label>
+                    <label><input type="radio" name="place" value="אחר"> אחר (פרט/י)</label>
+                    <input type="text" id="otherPlace" placeholder="פרט/י כאן" class="hidden">
+                </div>
+            </div>
+            <div class="question-block">
+                <label>3. מהי התחושה השכיחה ביותר כשאת/ה בלחץ?</label>
+                <div class="options">
+                    <label><input type="radio" name="feeling" value="דפיקות לב מהירות / קוצר נשימה" checked> דפיקות לב מהירות / קוצר נשימה</label>
+                    <label><input type="radio" name="feeling" value="מחשבות רצות / חוסר מיקוד"> מחשבות רצות / חוסר מיקוד</label>
+                    <label><input type="radio" name="feeling" value="מתח בשרירים / כיווץ"> מתח בשרירים / כיווץ</label>
+                    <label><input type="radio" name="feeling" value="חוסר סבלנות / עצבנות"> חוסר סבלנות / עצבנות</label>
+                </div>
+            </div>
+            <button id="submitQuiz">סיום והתאמה!</button>
+        </div>
+
+        <div id="chooseRoutineScreen" class="screen">
+            <h2 id="chooseRoutineTitle"></h2>
+            <div class="routine-buttons">
+                <button class="routine-btn" data-routine="breathing">תרגול נשימות 4-7-8</button>
+                <button class="routine-btn" data-routine="visualization">ויזואליזציה מודרכת</button>
+                <button class="routine-btn" data-routine="selfTalk">דיבור עצמי חיובי</button>
+            </div>
+            <button class="back-button" data-screen="quizScreen">חזרה לשאלון</button>
+        </div>
+
+        <div id="breathingRoutine" class="screen">
+            <h2>תרגול נשימות 4-7-8</h2>
+            <p>התמקדו בנשימה שלכם. שבו בנוחות, עשו שאיפה עמוקה דרך האף, החזיקו, ונשפו לאט דרך הפה.</p>
+            <div class="breathing-circle-container">
+                <div class="breathing-circle"></div>
+                <div class="breathing-text" id="breathingInstruction"></div>
+                <div class="timer-display" id="breathingTimer"></div>
+            </div>
+            <button id="startBreathing" class="start-routine-btn">התחל/י נשימות</button>
+            <button class="back-button" data-screen="chooseRoutineScreen">סיימתי / חזרה לתפריט ראשי</button>
+        </div>
+
+        <div id="visualizationRoutine" class="screen">
+            <h2 id="visualizationTitle"></h2>
+            <p id="visualizationInstruction"></p>
+            <button id="startVisualization" class="start-routine-btn">התחל/י ויזואליזציה</button>
+            <button class="back-button" data-screen="chooseRoutineScreen">סיימתי / חזרה לתפריט ראשי</button>
+        </div>
+
+        <div id="selfTalkRoutine" class="screen">
+            <h2 id="selfTalkTitle"></h2>
+            <p>הקשיבו למילים הבאות, ונסו להפנים אותן. אתם מדברים אל עצמכם, מנקודת מבט חומלת ותומכת.</p>
+            <div class="self-talk-area" id="selfTalkText"></div>
+            <button id="startSelfTalk" class="start-routine-btn">התחל/י דיבור עצמי</button>
+            <button class="back-button" data-screen="chooseRoutineScreen">סיימתי / חזרה לתפריט ראשי</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
